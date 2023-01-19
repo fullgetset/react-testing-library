@@ -1,21 +1,30 @@
-import { useEffect, useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import AboutPage from "./pages/AboutPage";
+import ErrorPage from "./pages/ErrorPage";
+import MainPage from "./pages/MainPage";
+import PostsDetailsPage from "./pages/PostsDetailsPage";
+import Posts from "./posts/Posts";
 
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setData({});
-    }, 2000);
-  }, []);
-
   return (
-    <div className="App">
-      {data && <div>data</div>}
-      <h1>Hello world!</h1>
-      <button></button>
-      <input type="text" placeholder="input value" />
-    </div>
+    <>
+      <Link to="/" data-testid="main-link">
+        main
+      </Link>
+      <Link to="/about" data-testid="about-link">
+        about
+      </Link>
+      <Link to="/posts" data-testid="about-link">
+        posts
+      </Link>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:id" element={<PostsDetailsPage />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
+    </>
   );
 }
 
