@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +24,7 @@ const Posts = () => {
   return (
     <div>
       {posts.map((post) => (
-        <Link to={`/posts/${post.id}`} key={post.id} data-testid="posts-item">
+        <Link to={`/posts/${post.id}`} key={post.id} data-testid="post-item">
           {post.id}
         </Link>
       ))}

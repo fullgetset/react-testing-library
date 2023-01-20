@@ -1,10 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
 import LearnTest from "./LearnTest";
 
 describe("TEST API", () => {
   test("renders learn react link", () => {
-    render(<LearnTest />);
+    render(
+      <MemoryRouter>
+        <LearnTest />
+      </MemoryRouter>
+    );
     const ggDrop = screen.getByText(/ggdrop/i);
     // ищем строку через регулярное выражение
     const hellowWorld = screen.getByText(/hello world!/i);
@@ -23,7 +28,11 @@ describe("TEST API", () => {
   });
 
   test("async test", async () => {
-    render(<LearnTest />);
+    render(
+      <MemoryRouter>
+        <LearnTest />
+      </MemoryRouter>
+    );
     //findBy - ищет элемент (возвращает объект обернутый в промис). используется для асинхронного использования
     //getBy - 100% должен найти какой-то элемент , еслии елемент не находится - тест падает. Используется для 100%% получения элемента
     //queryBy - можем убедиться в том , что какого-то элемента нет (чаще используется , что бы доказать отсуствие элемента, в случае отсуствия не выдаёт ошибку)

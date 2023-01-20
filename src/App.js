@@ -1,4 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
+import LearnTest from "./learnTest/LearnTest";
 import AboutPage from "./pages/AboutPage";
 import ErrorPage from "./pages/ErrorPage";
 import MainPage from "./pages/MainPage";
@@ -14,7 +15,7 @@ function App() {
       <Link to="/about" data-testid="about-link">
         about
       </Link>
-      <Link to="/posts" data-testid="about-link">
+      <Link to="/posts" data-testid="posts-link">
         posts
       </Link>
       <Routes>
